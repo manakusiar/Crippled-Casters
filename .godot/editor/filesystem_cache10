@@ -1,0 +1,14 @@
+ea4bc82a6ad023ab7ee23ee620429895
+::res://::1757500672
+icon.svg::CompressedTexture2D/CompressedTexture2D::6442035961102743512::1757337683::1757406752::1::::<><><>0<>0<>19537ae5103a36280340de82c2271c21<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
+README.md::TextFile/TextFile::-1::1757405972::0::1::::<><><>0<>0<><>::
+::res://entities/::1757337717
+::res://entities/items/::1757337717
+::res://entities/players/::1757337712
+::res://world/::1757337774
+::res://world/maps/::1757337823
+::res://world/maps/title_screen/::1757500650
+button_manager.gd::GDScript/GDScript::5910271977779505171::1757499948::0::1::::<>Node2D<><>0<>0<><>::
+title_screen.gd::GDScript/GDScript::6045524491121337607::1757409514::0::1::::<>Node2D<><>0<>0<><>::
+title_screen.tscn::PackedScene::7441253538133280249::1757500650::0::1::::<><><>0<>0<><>::uid://cseq51kkrrndv::::res://world/maps/title_screen/title_screen.gd<>uid://cqg8k0i8n4mal::::res://world/maps/title_screen/button_manager.gd
+::res://world/tilesets/::1757337774
