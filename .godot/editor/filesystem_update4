@@ -1,1 +1,13 @@
 res://world/maps/title_screen/title_screen.tscn
+res://common/themes/styleboxes/main_selected.stylebox
+res://world/maps/player_join/player_join.tscn
+res://common/scene_manager/scene_manager.tscn
+res://ui_elements/player_manager/player_manager.tscn
+res://ui_elements/choice_box/choice_box.tscn
+res://ui_elements/choice_box/choice_box.gd
+res://ui_elements/player_manager/player_manager.gd
+res://world/maps/game/world_0_1/world_0_1.tscn
+res://common/scene_manager/scene_manager.gd
+res://world/maps/player_join/player_join.gd
+res://common/gamepad_manager/gamepad_manager.gd
+res://ui_elements/button_manager/button_manager.gd

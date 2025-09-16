@@ -1,0 +1,85 @@
+[gd_scene load_steps=5 format=3 uid="uid://ciq51a2u6hgmr"]
+
+[ext_resource type="Script" uid="uid://bwmmn5knu8uay" path="res://ui_elements/player_manager/player_manager.gd" id="1_rtoh2"]
+[ext_resource type="Script" uid="uid://cqg8k0i8n4mal" path="res://ui_elements/button_manager/button_manager.gd" id="2_q43ho"]
+[ext_resource type="Script" uid="uid://boc2o7era1y0x" path="res://ui_elements/custom_button/custom_button.gd" id="3_7ygot"]
+[ext_resource type="PackedScene" uid="uid://b16wm66em62i0" path="res://ui_elements/choice_box/choice_box.tscn" id="4_w2txs"]
+
+[node name="PlayerManager" type="HBoxContainer" node_paths=PackedStringArray("button_manager", "label_name", "ready_button")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 6
+script = ExtResource("1_rtoh2")
+button_manager = NodePath("VBoxContainer")
+label_name = NodePath("VBoxContainer/Name")
+ready_button = NodePath("VBoxContainer/Ready")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." node_paths=PackedStringArray("buttons")]
+layout_mode = 2
+size_flags_vertical = 4
+script = ExtResource("2_q43ho")
+any_input = false
+buttons = [NodePath("CustomButton"), NodePath("Wrapper/Choice Box"), NodePath("Wrapper2/Choice Box"), NodePath("Wrapper3/Choice Box"), NodePath("Ready")]
+
+[node name="Name" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Player Num"
+
+[node name="CustomButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Next"
+script = ExtResource("3_7ygot")
+metadata/_custom_type_script = "uid://boc2o7era1y0x"
+
+[node name="Wrapper" type="Control" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 22)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Choice Box" parent="VBoxContainer/Wrapper" instance=ExtResource("4_w2txs")]
+layout_mode = 1
+offset_left = -59.0
+offset_top = -11.0
+offset_right = 59.0
+offset_bottom = 11.0
+options = Array[String](["Heae", "Test"])
+
+[node name="Wrapper2" type="Control" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 22)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Choice Box" parent="VBoxContainer/Wrapper2" instance=ExtResource("4_w2txs")]
+layout_mode = 1
+offset_left = -59.0
+offset_top = -11.0
+offset_right = 59.0
+offset_bottom = 11.0
+options = Array[String](["Heae", "Test", "BASIC LONG"])
+
+[node name="Wrapper3" type="Control" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 22)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Choice Box" parent="VBoxContainer/Wrapper3" instance=ExtResource("4_w2txs")]
+layout_mode = 1
+offset_left = -59.0
+offset_top = -11.0
+offset_right = 59.0
+offset_bottom = 11.0
+options = Array[String](["Heae", "Test"])
+
+[node name="Ready" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Ready"
+script = ExtResource("3_7ygot")
+metadata/_custom_type_script = "uid://boc2o7era1y0x"
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3

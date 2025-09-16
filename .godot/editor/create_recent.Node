@@ -1,2 +1,14 @@
+Label
+CustomButton
+HBoxContainer
+Control
+ChoiceBox
 Button
-Node2D
+BoxContainer
+VBoxContainer
+HSplitContainer
+Container
+AnimationPlayer
+ColorRect
+CanvasLayer
+Panel

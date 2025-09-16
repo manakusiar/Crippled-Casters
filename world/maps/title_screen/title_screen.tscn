@@ -1,30 +1,56 @@
-[gd_scene load_steps=3 format=3 uid="uid://deaumgsd2rupt"]
+[gd_scene load_steps=8 format=3 uid="uid://deaumgsd2rupt"]
 
 [ext_resource type="Script" uid="uid://cseq51kkrrndv" path="res://world/maps/title_screen/title_screen.gd" id="1_2j1ij"]
-[ext_resource type="Script" uid="uid://cqg8k0i8n4mal" path="res://world/maps/title_screen/button_manager.gd" id="2_i72tp"]
+[ext_resource type="Script" uid="uid://cqg8k0i8n4mal" path="res://ui_elements/button_manager/button_manager.gd" id="2_i72tp"]
+[ext_resource type="Theme" uid="uid://wkae4t0kc0e" path="res://common/themes/main.tres" id="3_namdl"]
+[ext_resource type="StyleBox" uid="uid://b5hqe50b8owq2" path="res://common/themes/styleboxes/main.stylebox" id="3_s5gu4"]
+[ext_resource type="StyleBox" uid="uid://dsyugc3kper3n" path="res://common/themes/styleboxes/main_selected.stylebox" id="4_60y6s"]
+[ext_resource type="Script" uid="uid://boc2o7era1y0x" path="res://ui_elements/custom_button/custom_button.gd" id="5_60y6s"]
+[ext_resource type="PackedScene" uid="uid://b16wm66em62i0" path="res://ui_elements/choice_box/choice_box.tscn" id="7_t1ygu"]
 
 [node name="TitleScreen" type="Node2D"]
 script = ExtResource("1_2j1ij")
 
-[node name="ButtonManager" type="Node2D" parent="." node_paths=PackedStringArray("buttons")]
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+offset_left = 1.0
+offset_right = 641.0
+offset_bottom = 360.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="ButtonManager" type="VBoxContainer" parent="HBoxContainer" node_paths=PackedStringArray("buttons")]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+theme_override_constants/separation = 8
 script = ExtResource("2_i72tp")
-buttons = [NodePath("Button"), NodePath("Button2"), NodePath("Button3")]
+buttons = [NodePath("Start Game"), NodePath("Options"), NodePath("Exit"), NodePath("Choice Box")]
+sb_main = ExtResource("3_s5gu4")
+sb_main_selected = ExtResource("4_60y6s")
 
-[node name="Button" type="Button" parent="ButtonManager"]
-offset_right = 8.0
-offset_bottom = 8.0
-text = "Test 1"
+[node name="Start Game" type="Button" parent="HBoxContainer/ButtonManager"]
+layout_mode = 2
+text = "Start Game"
+script = ExtResource("5_60y6s")
+metadata/_custom_type_script = "uid://boc2o7era1y0x"
 
-[node name="Button2" type="Button" parent="ButtonManager"]
-offset_left = 10.0
-offset_top = 58.0
-offset_right = 64.0
-offset_bottom = 89.0
-text = "Test 2"
+[node name="Options" type="Button" parent="HBoxContainer/ButtonManager"]
+layout_mode = 2
+theme = ExtResource("3_namdl")
+text = "Options
+"
+script = ExtResource("5_60y6s")
+metadata/_custom_type_script = "uid://boc2o7era1y0x"
 
-[node name="Button3" type="Button" parent="ButtonManager"]
-offset_left = 17.0
-offset_top = 134.0
-offset_right = 71.0
-offset_bottom = 165.0
-text = "Test 3"
+[node name="Exit" type="Button" parent="HBoxContainer/ButtonManager"]
+layout_mode = 2
+text = "Exit"
+script = ExtResource("5_60y6s")
+metadata/_custom_type_script = "uid://boc2o7era1y0x"
+
+[node name="Choice Box" parent="HBoxContainer/ButtonManager" instance=ExtResource("7_t1ygu")]
+layout_mode = 2
+options = Array[String](["test", "jello"])
+
+[connection signal="pressed" from="HBoxContainer/ButtonManager/Start Game" to="." method="_on_start_game_pressed"]
+[connection signal="pressed" from="HBoxContainer/ButtonManager/Exit" to="." method="_on_exit_pressed"]
