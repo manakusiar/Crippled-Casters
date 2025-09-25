@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://c5oh66780oq4u"]
+
+[ext_resource type="Texture2D" uid="uid://babifro4i1vjh" path="res://components/levels/tilesets/tileset.png" id="1_qio3n"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i3g8e"]
+atlas = ExtResource("1_qio3n")
+region = Rect2(32, 32, 16, 48)
+
+[node name="HangingVines" type="Sprite2D"]
+texture = SubResource("AtlasTexture_i3g8e")
+offset = Vector2(0, 16)

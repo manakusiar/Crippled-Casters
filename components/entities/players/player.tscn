@@ -1,0 +1,320 @@
+[gd_scene load_steps=19 format=3 uid="uid://cm4ley0avxxis"]
+
+[ext_resource type="Script" uid="uid://nlj67ntapecc" path="res://components/entities/players/player.gd" id="1_hg43r"]
+[ext_resource type="SpriteFrames" uid="uid://b3cpp7d1v7gp1" path="res://components/entities/players/sprites/knight_sprite_frames.tres" id="2_a5luw"]
+[ext_resource type="SpriteFrames" uid="uid://yn2o0j4nbxob" path="res://components/entities/players/sprites/anomaly_sprite_frames.tres" id="2_uaxfh"]
+[ext_resource type="SpriteFrames" uid="uid://c5g0r3pvw2ukl" path="res://components/entities/players/sprites/thief_sprite_frames.tres" id="2_wg6or"]
+[ext_resource type="Script" uid="uid://bxn4nfq2jmq7p" path="res://components/entities/handlers/input_handler/input_handler.gd" id="3_5818d"]
+[ext_resource type="Script" uid="uid://cixqc8oc0tuf8" path="res://components/entities/handlers/animation_handler/animation_handler.gd" id="4_ocavd"]
+[ext_resource type="Script" uid="uid://t2ywgr3i3icw" path="res://components/entities/handlers/movement_handler/movement_handler.gd" id="5_ocavd"]
+[ext_resource type="Script" uid="uid://dwg4wg7dmflt6" path="res://components/entities/handlers/character_handler/character_handler.gd" id="6_a5luw"]
+[ext_resource type="Script" uid="uid://cd5pga2h8gqay" path="res://components/entities/handlers/attack_handler/attack_handler.gd" id="9_3ujbt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8t3h3"]
+size = Vector2(12, 17)
+
+[sub_resource type="Animation" id="Animation_uaxfh"]
+resource_name = "anomaly_attack"
+length = 0.46667334
+step = 0.06666667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"attack"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimatedSprite2D")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [&"attack", 1.0, false],
+"method": &"play"
+}]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("HitBoxes/AnomalyAttack/CollisionShape2D:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.26742786, 0.3347658),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="Animation" id="Animation_3ujbt"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HitBoxes/AnomalyAttack/CollisionShape2D:disabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("HitBoxes/KnightAttack/CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_8fnv2"]
+resource_name = "knight_attack"
+length = 0.86667335
+step = 0.06666667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"attack"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimatedSprite2D")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [&"attack", 1.0, false],
+"method": &"play"
+}]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("HitBoxes/KnightAttack/CollisionShape2D:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.2, 0.26666668, 0.6666667, 0.73333335),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [false, true, false, true]
+}
+
+[sub_resource type="Animation" id="Animation_aeb0t"]
+resource_name = "thief_attack"
+length = 0.33334002
+step = 0.06666667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"attack"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimatedSprite2D")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [&"attack", 1.0, false],
+"method": &"play"
+}]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("HitBoxes/ThiefAttack/CollisionShape2D:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.13333333, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3ujbt"]
+_data = {
+&"RESET": SubResource("Animation_3ujbt"),
+&"anomaly_attack": SubResource("Animation_uaxfh"),
+&"knight_attack": SubResource("Animation_8fnv2"),
+&"thief_attack": SubResource("Animation_aeb0t")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uaxfh"]
+size = Vector2(22, 5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3ujbt"]
+size = Vector2(37, 10)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8fnv2"]
+size = Vector2(25, 8)
+
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("input_handler", "movement_handler", "animation_handler", "character_handler", "attack_handler", "animation_player", "sprite", "hitboxes")]
+collision_layer = 2
+script = ExtResource("1_hg43r")
+input_handler = NodePath("Components/InputComponent")
+movement_handler = NodePath("Components/MovementComponent")
+animation_handler = NodePath("Components/AnimationComponent")
+character_handler = NodePath("Components/CharacterHandler")
+attack_handler = NodePath("Components/AttackHandler")
+animation_player = NodePath("AnimationPlayer")
+sprite = NodePath("AnimatedSprite2D")
+hitboxes = NodePath("HitBoxes")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -8.5)
+shape = SubResource("RectangleShape2D_8t3h3")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -16)
+sprite_frames = ExtResource("2_wg6or")
+animation = &"attack"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_3ujbt")
+}
+
+[node name="Timers" type="Node" parent="."]
+
+[node name="JumpCancel" type="Timer" parent="Timers"]
+one_shot = true
+
+[node name="JumpDelay" type="Timer" parent="Timers"]
+wait_time = 0.1
+one_shot = true
+
+[node name="CayoteTimer" type="Timer" parent="Timers"]
+wait_time = 100.0
+one_shot = true
+
+[node name="AttackFollowup" type="Timer" parent="Timers"]
+one_shot = true
+
+[node name="Components" type="Node" parent="."]
+
+[node name="InputComponent" type="Node" parent="Components"]
+script = ExtResource("3_5818d")
+metadata/_custom_type_script = "uid://bxn4nfq2jmq7p"
+
+[node name="AnimationComponent" type="Node" parent="Components" node_paths=PackedStringArray("father")]
+script = ExtResource("4_ocavd")
+father = NodePath("../..")
+metadata/_custom_type_script = "uid://cixqc8oc0tuf8"
+
+[node name="MovementComponent" type="Node" parent="Components" node_paths=PackedStringArray("father", "timer_jump_cancel", "timer_jump_delay", "timer_cayote", "timer_attack")]
+script = ExtResource("5_ocavd")
+father = NodePath("../..")
+timer_jump_cancel = NodePath("../../Timers/JumpCancel")
+timer_jump_delay = NodePath("../../Timers/JumpDelay")
+timer_cayote = NodePath("../../Timers/CayoteTimer")
+timer_attack = NodePath("../../Timers/AttackFollowup")
+metadata/_custom_type_script = "uid://t2ywgr3i3icw"
+
+[node name="CharacterHandler" type="Node" parent="Components" node_paths=PackedStringArray("father")]
+script = ExtResource("6_a5luw")
+father = NodePath("../..")
+character = "thief"
+character_array = Array[SpriteFrames]([ExtResource("2_a5luw"), ExtResource("2_wg6or"), ExtResource("2_uaxfh")])
+metadata/_custom_type_script = "uid://dwg4wg7dmflt6"
+
+[node name="AttackHandler" type="Node" parent="Components" node_paths=PackedStringArray("father")]
+script = ExtResource("9_3ujbt")
+father = NodePath("../..")
+metadata/_custom_type_script = "uid://cd5pga2h8gqay"
+
+[node name="HitBoxes" type="Node2D" parent="."]
+
+[node name="AnomalyAttack" type="Area2D" parent="HitBoxes"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBoxes/AnomalyAttack"]
+position = Vector2(13, -7.5)
+shape = SubResource("RectangleShape2D_uaxfh")
+disabled = true
+
+[node name="KnightAttack" type="Area2D" parent="HitBoxes"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBoxes/KnightAttack"]
+position = Vector2(5.5, -7)
+shape = SubResource("RectangleShape2D_3ujbt")
+disabled = true
+
+[node name="ThiefAttack" type="Area2D" parent="HitBoxes"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBoxes/ThiefAttack"]
+position = Vector2(4.5, -4)
+shape = SubResource("RectangleShape2D_8fnv2")
+disabled = true

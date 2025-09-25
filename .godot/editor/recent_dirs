@@ -1,5 +1,6 @@
-res://common/button_values
-res://common/fonts
-res://common/themes
-res://ui_elements/player_manager
-res://ui_elements/choice_box
+res://components/entities/players/sprites
+res://components/levels/maps/game/world_0_1
+res://components/levels/tilesets
+res://components/entities/camera
+res://components/entities/players
+/home/rune/Documents/GitHub/Crippled Casters/
