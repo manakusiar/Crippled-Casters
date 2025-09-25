@@ -2,7 +2,11 @@ class_name CharacterHandler
 extends Node
 
 @export var father: Node2D
+<<<<<<< HEAD
 @export var character: String = ["knight","thief","anomaly"].pick_random()
+=======
+@export var character: String = "anomaly"
+>>>>>>> origin/main
 @export var character_names: Dictionary = {
 	"knight": 0,
 	"thief": 1,

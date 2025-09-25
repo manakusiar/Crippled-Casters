@@ -3,18 +3,25 @@ extends Node
 
 @export_subgroup("Nodes")
 @export var father: Node2D
+<<<<<<< HEAD
 @export var attack_cooldown_timer: Timer
+=======
+>>>>>>> origin/main
 
 var input_handler: InputHandler
 var character_handler: CharacterHandler
 var animation_player: AnimationPlayer
 var is_attacking: bool = false
+<<<<<<< HEAD
 var wants_to_attack: bool = false
+=======
+>>>>>>> origin/main
 
 # Engine Callback
 func _ready() -> void:
 	animation_player = father.animation_player
 	character_handler = father.character_handler
+<<<<<<< HEAD
 	
 	input_handler = father.input_handler
 	input_handler.attack_input.connect(_attack_input)
@@ -39,4 +46,13 @@ func stop_attacking() -> void:
 
 func attack() -> void:
 	is_attacking = true
+=======
+	input_handler = father.input_handler
+	input_handler.attack_input.connect(_attack_input)
+
+func _attack_input(pressed) -> void:
+	if pressed and father.is_on_floor() and !is_attacking: is_attacking = true
+
+func attack() -> void:
+>>>>>>> origin/main
 	animation_player.play(character_handler.character+"_attack")

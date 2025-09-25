@@ -13,6 +13,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8t3h3"]
 size = Vector2(12, 17)
 
+<<<<<<< HEAD
 [sub_resource type="Animation" id="Animation_3ujbt"]
 length = 0.001
 tracks/0/type = "value"
@@ -67,6 +68,11 @@ tracks/3/keys = {
 [sub_resource type="Animation" id="Animation_uaxfh"]
 resource_name = "anomaly_attack"
 length = 0.33334002
+=======
+[sub_resource type="Animation" id="Animation_uaxfh"]
+resource_name = "anomaly_attack"
+length = 0.46667334
+>>>>>>> origin/main
 step = 0.06666667
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -109,15 +115,24 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
+<<<<<<< HEAD
 tracks/3/path = NodePath("HitBoxes/AnomalyAttack/HitBoxAnomaly:disabled")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "times": PackedFloat32Array(0.19932875, 0.26666668),
+=======
+tracks/3/path = NodePath("HitBoxes/AnomalyAttack/CollisionShape2D:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.26742786, 0.3347658),
+>>>>>>> origin/main
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [false, true]
 }
+<<<<<<< HEAD
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
@@ -125,6 +140,30 @@ tracks/4/path = NodePath("HitBoxes:visible")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
+=======
+
+[sub_resource type="Animation" id="Animation_3ujbt"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HitBoxes/AnomalyAttack/CollisionShape2D:disabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("HitBoxes/KnightAttack/CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+>>>>>>> origin/main
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
@@ -176,7 +215,11 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
+<<<<<<< HEAD
 tracks/3/path = NodePath("HitBoxes/KnightAttack/HitBoxKnight:disabled")
+=======
+tracks/3/path = NodePath("HitBoxes/KnightAttack/CollisionShape2D:disabled")
+>>>>>>> origin/main
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -185,6 +228,7 @@ tracks/3/keys = {
 "update": 1,
 "values": [false, true, false, true]
 }
+<<<<<<< HEAD
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
@@ -197,6 +241,8 @@ tracks/4/keys = {
 "update": 1,
 "values": [true]
 }
+=======
+>>>>>>> origin/main
 
 [sub_resource type="Animation" id="Animation_aeb0t"]
 resource_name = "thief_attack"
@@ -243,7 +289,11 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
+<<<<<<< HEAD
 tracks/3/path = NodePath("HitBoxes/ThiefAttack/HitBoxThief:disabled")
+=======
+tracks/3/path = NodePath("HitBoxes/ThiefAttack/CollisionShape2D:disabled")
+>>>>>>> origin/main
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -252,6 +302,7 @@ tracks/3/keys = {
 "update": 1,
 "values": [false, true]
 }
+<<<<<<< HEAD
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
@@ -264,6 +315,8 @@ tracks/4/keys = {
 "update": 1,
 "values": [true]
 }
+=======
+>>>>>>> origin/main
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_3ujbt"]
 _data = {
@@ -318,16 +371,23 @@ wait_time = 0.1
 one_shot = true
 
 [node name="CayoteTimer" type="Timer" parent="Timers"]
+<<<<<<< HEAD
 wait_time = 0.1
+=======
+wait_time = 100.0
+>>>>>>> origin/main
 one_shot = true
 
 [node name="AttackFollowup" type="Timer" parent="Timers"]
 one_shot = true
 
+<<<<<<< HEAD
 [node name="AttackCooldown" type="Timer" parent="Timers"]
 wait_time = 0.05
 one_shot = true
 
+=======
+>>>>>>> origin/main
 [node name="Components" type="Node" parent="."]
 
 [node name="InputComponent" type="Node" parent="Components"]
@@ -351,6 +411,7 @@ metadata/_custom_type_script = "uid://t2ywgr3i3icw"
 [node name="CharacterHandler" type="Node" parent="Components" node_paths=PackedStringArray("father")]
 script = ExtResource("6_a5luw")
 father = NodePath("../..")
+<<<<<<< HEAD
 character_array = Array[SpriteFrames]([ExtResource("2_a5luw"), ExtResource("2_wg6or"), ExtResource("2_uaxfh")])
 metadata/_custom_type_script = "uid://dwg4wg7dmflt6"
 
@@ -366,19 +427,40 @@ visible = false
 [node name="AnomalyAttack" type="Area2D" parent="HitBoxes"]
 
 [node name="HitBoxAnomaly" type="CollisionShape2D" parent="HitBoxes/AnomalyAttack"]
+=======
+character = "thief"
+character_array = Array[SpriteFrames]([ExtResource("2_a5luw"), ExtResource("2_wg6or"), ExtResource("2_uaxfh")])
+metadata/_custom_type_script = "uid://dwg4wg7dmflt6"
+
+[node name="AttackHandler" type="Node" parent="Components" node_paths=PackedStringArray("father")]
+script = ExtResource("9_3ujbt")
+father = NodePath("../..")
+metadata/_custom_type_script = "uid://cd5pga2h8gqay"
+
+[node name="HitBoxes" type="Node2D" parent="."]
+
+[node name="AnomalyAttack" type="Area2D" parent="HitBoxes"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBoxes/AnomalyAttack"]
+>>>>>>> origin/main
 position = Vector2(13, -7.5)
 shape = SubResource("RectangleShape2D_uaxfh")
 disabled = true
 
 [node name="KnightAttack" type="Area2D" parent="HitBoxes"]
 
+<<<<<<< HEAD
 [node name="HitBoxKnight" type="CollisionShape2D" parent="HitBoxes/KnightAttack"]
+=======
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBoxes/KnightAttack"]
+>>>>>>> origin/main
 position = Vector2(5.5, -7)
 shape = SubResource("RectangleShape2D_3ujbt")
 disabled = true
 
 [node name="ThiefAttack" type="Area2D" parent="HitBoxes"]
 
+<<<<<<< HEAD
 [node name="HitBoxThief" type="CollisionShape2D" parent="HitBoxes/ThiefAttack"]
 position = Vector2(4.5, -4)
 shape = SubResource("RectangleShape2D_8fnv2")
@@ -399,3 +481,9 @@ grow_vertical = 2
 size_flags_horizontal = 4
 horizontal_alignment = 1
 vertical_alignment = 1
+=======
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBoxes/ThiefAttack"]
+position = Vector2(4.5, -4)
+shape = SubResource("RectangleShape2D_8fnv2")
+disabled = true
+>>>>>>> origin/main

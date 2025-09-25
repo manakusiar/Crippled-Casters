@@ -2,6 +2,7 @@ extends Camera2D
 
 @export var player_nodes: Node
 
+<<<<<<< HEAD
 func _ready() -> void:
 	var _pos = Vector2.ZERO
 	var _child_num = 0
@@ -12,6 +13,8 @@ func _ready() -> void:
 	position = _pos / _child_num
 	reset_smoothing()
 
+=======
+>>>>>>> origin/main
 func _process(delta: float) -> void:
 	var _pos = Vector2.ZERO
 	var _child_num = 0
