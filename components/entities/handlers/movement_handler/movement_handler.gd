@@ -81,28 +81,32 @@ func handle_gravity() -> void:
 			current_gravity *= fall_gravity_multiplier
 	motion_data.velocity.y += current_gravity * motion_data.delta
 
-func jump():
+func jump(only_direct: bool = false):
 	father.velocity.y = jump_power
+	if !only_direct: motion_data.velocity.y = jump_power
+	
 	timer_jump_cancel.start()
 	timer_cayote.stop()
+	
 	can_cayote_jump = false
+	if attack_handler.is_attacking: attack_handler.stop_attacking()
 
 # Timer Functions
 func update_jump_timers() -> void:
 	var on_floor = motion_data.on_floor
 	var velocity = motion_data.velocity
+	
 	if !timer_jump_delay.is_stopped() and on_floor:
-		timer_jump_delay.stop()
 		jump()
+		timer_jump_delay.stop()
 	if !timer_jump_cancel.is_stopped() and velocity.y > 0:
 		timer_jump_cancel.stop()
 
 func update_cayote_timer() -> void:
 	var on_floor = motion_data.on_floor
-	if was_on_floor and !on_floor and can_cayote_jump: 
-		timer_cayote.start()
+	if was_on_floor and !on_floor: 
+		if can_cayote_jump: timer_cayote.start()
 		was_on_floor = false
-		if attack_handler.is_attacking: attack_handler.is_attacking = false
 	elif was_on_floor == false and on_floor: 
 		was_on_floor = true
 		can_cayote_jump = true
@@ -134,6 +138,9 @@ func _jump_input(pressed: bool) -> void:
 		father.velocity.y *= 0.5
 		timer_jump_cancel.stop()
 
-func _move_down_input(pressed) -> void:
-	if pressed:
+func _move_down_input(pressed, event) -> void:
+	var gamepad_check = true
+	if !father.is_keyboard: gamepad_check = abs(Input.get_joy_axis(father.gamepad_num, event.axis)) > 0.9
+	
+	if pressed and (gamepad_check):
 		father.position.y += 1

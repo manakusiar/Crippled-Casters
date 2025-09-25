@@ -31,9 +31,7 @@ func handle_animations() -> void:
 		sprite.flip_h = flip
 		hitbox_container.scale.x = 1 - 2*int(flip)
 	
-	if attack_handler.is_attacking == true and anim != "attack":
-		attack_handler.attack()
-	elif attack_handler.is_attacking == false:
+	if attack_handler.is_attacking == false:
 		if abs(vel.y) > air_delta:
 			if sign(vel.y) > 0:
 				sprite.play("fall")
@@ -46,4 +44,5 @@ func handle_animations() -> void:
 				sprite.play("idle")
 
 func _animation_finished() -> void:
-	if attack_handler.is_attacking: attack_handler.is_attacking = false
+	if attack_handler.is_attacking: 
+		attack_handler.stop_attacking()

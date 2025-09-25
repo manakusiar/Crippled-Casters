@@ -20,7 +20,7 @@ func _input(event: InputEvent) -> void:
 			if event.is_action("attack"):
 				attack_input.emit(event.is_pressed())
 			if event.is_action("move_down"):
-				move_down_input.emit(event.is_pressed())
+				move_down_input.emit(event.is_pressed(),event)
 
 
 # General function
@@ -52,6 +52,12 @@ func is_action_held_by_device(action: StringName, device_id: int) -> bool:
 				return true
 	return false
 
+func get_action_axis(action: StringName, device_id: int) -> float:
+	var events = InputMap.action_get_events(action)
+	for event in events:
+		if event is InputEventJoypadMotion:
+			return Input.get_joy_axis(device_id, event.axis)
+	return -4.0
 
 # Helper Function
 func update_input_type(_is_keyboard: bool, _gamepad_num: int = 0) -> void:
